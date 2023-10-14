@@ -85,6 +85,48 @@ def angelo(df: pd.DataFrame) -> tuple:
 
     return get_image_to_flask(), text, title
 
+def lara(df):
+"""
+Visualização que mostra a porcentagem de participantes do gênero feminino e masculino, separando pelas raças também declaradas por esses participantes.
+    Parametros:
+            df (pd.DataFrame): DataFrame com os dados
+
+        Returns:
+            image (str): Tag imagem com os bytes da figura
+            text (list): Lista com os textos para serem exibidos na página
+            title (str): Título da visualização
+"""
+    # Agrupa os dados por gênero e raça, também conta a quantidade em cada grupo
+    grouped_data = df.groupby(['TP_COR_RACA', 'TP_SEXO']).size().unstack()
+
+    # Cores para as barras (F e M)
+    cores = ['pink', 'blue']
+
+    # Cria o gráfico de barras agrupadas com as cores que escolhi
+    grouped_data.plot(kind='bar', stacked=True, color=cores)
+
+    # Adiciona rótulos aos eixos e mantém os números do eixo x retos
+    plt.xlabel('Raça')
+    plt.ylabel('Contagem')
+    plt.xticks(rotation=0)  
+
+    # Adiciona título ao gráfico
+    plt.title('Distribuição de Gênero por Raça no ENEM')
+    text = [
+        "É possível notar que os grupos 1 e 3 são os maiores, sendo então candidatos brancos ou pardos maioria no ENEM (também com um grande ppublico feminino).",
+        "Em terceiro lugar de tamanho, o grupo 2 mostra os participantes negros (com grande quantidade de mulheres), sendo uma das raças mais presentes no Brasil segundo o IBGE.",
+        "O abismo de quantidade do grupo 2 para o 1 e 3 é considerável, não condizendo com a diferença populacional deles, mostrando uma possível marginalização do grupo."
+        "Cidadãos negros, mesmo que em grande quantidade, não estão tão presentes no concurso público quanto brancos ou pardos (indígenas também apareceram em número mínimo)."
+    ]
+
+    # Exibe o gráfico
+    plt.show()
+
+# Chame a função com o DataFrame df
+lara(df)
+
+return get_image_to_flask(), text, title
+
 
 def get_all_vis(df: pd.DataFrame) -> list:
     """
