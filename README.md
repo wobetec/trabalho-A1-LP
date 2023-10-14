@@ -47,6 +47,14 @@ Para executar os testes é possível rodar cara arquivo `test_*` em `/tests` ou 
 
 
 # Documentação
+Para criar a documentação geramos os arquivos `.rst` com o comando
 
+    sphinx-apidoc -o docs [module]
+
+Depois utilizamos o seguinte comando dentro do diretório `\docs` para atualizar a documentação:
+
+    make html
+
+A documentação pode ser visualizada abrindo arquivo [index.html](docs/_build/html/index.html) ou através do github pages.
 
 

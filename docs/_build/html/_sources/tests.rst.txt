@@ -1,0 +1,18 @@
+tests module
+=============
+
+run\_tests
+-----------------------
+
+.. automodule:: tests.run_tests
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+test\_size\_manager
+--------------------------------
+
+.. automodule:: tests.test_size_manager
+   :members:
+   :undoc-members:
+   :show-inheritance:

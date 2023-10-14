@@ -7,10 +7,10 @@ def get_image_to_flask() -> str:
     """
     Transforma a figura do matplotlib em uma sequência de bytes para ser usada no Flask e retorna a tag imagem já com esses bytes
 
-        Parametros:
+    Parametros:
 
-        Returns:
-            image (str): Tag imagem com os bytes da figura
+    Returns:
+        image (str): Tag imagem com os bytes da figura
     
     """
     buf = BytesIO()
@@ -20,15 +20,15 @@ def get_image_to_flask() -> str:
 
 def esdras(df: pd.DataFrame) -> tuple:
     """
-    Estrutura padrão com a visualização do Esdras
+    Seguindo a estrutura padrão definida, esta função gera uma visualização comparando a influência da renda familiar na média das notas do enem.
 
-        Parametros:
-            df (pd.DataFrame): DataFrame com os dados
+    Parametros:
+        df (pd.DataFrame): DataFrame com os dados
 
-        Returns:
-            image (str): Tag imagem com os bytes da figura
-            text (list): Lista com os textos para serem exibidos na página
-            title (str): Título da visualização
+    Returns:
+        image (str): Tag imagem com os bytes da figura
+        text (list): Lista com os textos para serem exibidos na página
+        title (str): Título da visualização
     
     """
     df["media"] = (df["NU_NOTA_CH"] + df["NU_NOTA_CN"] + df["NU_NOTA_LC"] + df["NU_NOTA_MT"] + df["NU_NOTA_REDACAO"])/5
@@ -53,13 +53,13 @@ def esdras(df: pd.DataFrame) -> tuple:
 
 def get_all_vis(df: pd.DataFrame) -> list:
     """
-    Retorna uma lista com todas as visualizações, de cada membro
+    Retorna uma lista com todas as visualizações, de cada membro.
 
-        Parametros:
-            df (pd.DataFrame): DataFrame com os dados
+    Parametros:
+        df (pd.DataFrame): DataFrame com os dados
 
-        Returns:
-            vis (list): Lista com todas as visualizações
+    Returns:
+        vis (list): Lista com todas as visualizações
     
     """
     vis = []

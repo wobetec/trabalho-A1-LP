@@ -1,3 +1,6 @@
+"""Este módulo é responsável por lidar com a compactação e descompactação dos arquivos, além de cortar os dados originais para gerar um arquivo menor e encapsular a utilização da pasta de dados.
+
+"""
 import pandas as pd
 import data_work.data_info as di
 from zipfile import ZipFile, ZIP_DEFLATED
@@ -9,12 +12,12 @@ def path_to(file_name="", extension="") -> str:
     """
     Gera o absolute path para um caminho específico, baseado no diretório no qual está sendo executado, utilizando como base a pasta /data
 
-        Parametros:
-            file_name (str): Nome do arquivo
-            extension (str): Extensão do arquivo
+    Parametros:
+        file_name (str): Nome do arquivo
+        extension (str): Extensão do arquivo
 
-        Returns:
-            data_path (str): Absolute path para o arquivo
+    Returns:
+        data_path (str): Absolute path para o arquivo
     
     """
     relative = DATA_FOLDER
@@ -31,10 +34,10 @@ def unzip_file(file_name: str) -> None:
     """
     Descompacta um arquivo zipado dentro de /data
 
-        Parametros:
-            file_name (str): Nome do arquivo
+    Parametros:
+        file_name (str): Nome do arquivo
 
-        Returns:
+    Returns:
     
     """
     with ZipFile(path_to(file_name, "zip"), "r") as zip_ref:
@@ -45,10 +48,10 @@ def zip_file(file_name: str) -> None:
     """
     Compacta um arquivo csv dentro de /data
 
-        Parametros:
-            file_name (str): Nome do arquivo
+    Parametros:
+        file_name (str): Nome do arquivo
 
-        Returns:
+    Returns:
     
     """
     with ZipFile(path_to(file_name, "zip"), "w", ZIP_DEFLATED) as zip_ref:
@@ -59,12 +62,12 @@ def crop_data(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     """
     Corta os dados originais, ficando só com as colunas desejadas
 
-        Parametros:
-            df (pd.DataFrame): DataFrame com os dados originais
-            columns (list): Lista com as colunas desejadas
+    Parametros:
+        df (pd.DataFrame): DataFrame com os dados originais
+        columns (list): Lista com as colunas desejadas
 
-        Returns:
-            new_df (pd.DataFrame): DataFrame com os dados cortados
+    Returns:
+        new_df (pd.DataFrame): DataFrame com os dados cortados
     
     """
 
@@ -77,11 +80,11 @@ def save_data(df: pd.DataFrame, file_name: str) -> None:
     """
     Salva um dataframe em um arquivo csv
 
-        Parametros:
-            df (pd.DataFrame): DataFrame com os dados
-            file_name (str): Nome do arquivo
+    Parametros:
+        df (pd.DataFrame): DataFrame com os dados
+        file_name (str): Nome do arquivo
 
-        Returns:
+    Returns:
     
     """
     df.to_csv(path_to(file_name, "csv"), index=False, encoding="ISO-8859-1", sep=";")
@@ -91,11 +94,11 @@ def load_data(file_name: str) -> pd.DataFrame:
     """
     Carrega um arquivo csv em um dataframe
 
-        Parametros:
-            file_name (str): Nome do arquivo
+    Parametros:
+        file_name (str): Nome do arquivo
 
-        Returns:
-            df (pd.DataFrame): DataFrame com os dados
+    Returns:
+        df (pd.DataFrame): DataFrame com os dados
     
     """
 
@@ -111,9 +114,9 @@ def create_data():
         3- Salvar o arquivo cortado
         4- Compactar o arquivo cortado
 
-        Parametros:
+    Parametros:
 
-        Returns:
+    Returns:
     
     """
     if not os.path.exists(path_to(di.FILE_NAMES["full_file"], "csv")):
@@ -139,9 +142,9 @@ def initialize_data():
     """
     Driver function para descompactar o arquivo menor caso não tenha sido previamente
 
-        Parametros:
+    Parametros:
 
-        Returns:
+    Returns:
     
     """
 
