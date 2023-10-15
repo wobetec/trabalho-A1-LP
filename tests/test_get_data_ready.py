@@ -4,6 +4,7 @@ sys.path.insert(1, "./")
 import unittest
 import pandas as pd
 from data_work.get_data_ready import *
+import numpy as np
 
 data = {
     "Nome": ["Alice", "Bob", "Charlie", "David", "Eve"],
@@ -43,10 +44,13 @@ class TestGetDataReady(unittest.TestCase):
         self.assertTrue(self.df_test["Salario"].isna().sum() == 0)
 
     def test_tratar_tipo_dados(self):
-        tipos_validos = [int, str]
+        tipos_validos = [
+            np.dtypes.ObjectDType,
+            np.dtypes.Int64DType,
+        ]
         tratar_tipo_dados(self.df_test, tipos_validos)
-        self.assertTrue(self.df_test["Idade"].dtype == "object")
-        self.assertTrue(self.df_test["Cidade"].dtype == "object")
+        self.assertTrue(isinstance(self.df_test["Idade"].dtype, np.dtypes.Int64DType))
+        self.assertTrue(isinstance(self.df_test["Cidade"].dtype, np.dtypes.ObjectDType))
 
 
 if __name__ == "__main__":

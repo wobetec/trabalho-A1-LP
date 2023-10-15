@@ -1,6 +1,7 @@
 from data_work.size_manager import load_data
 import data_work.data_info as di
 import pandas as pd
+import numpy as np
 
 
 def get_data_ready() -> pd.DataFrame:
@@ -13,7 +14,11 @@ def get_data_ready() -> pd.DataFrame:
         df (pd.DataFrame): Dataframe pronto para ser construido visualizações
     """
     df = load_data(di.FILE_NAMES["small_file"])
-    tipos_validos = [int, str, float]
+    tipos_validos = [
+        np.dtypes.ObjectDType,
+        np.dtypes.Float64DType,
+        np.dtypes.Int64DType,
+    ]
     coluna_limites = {
         "TP_FAIXA_ETARIA": 20,
         "TP_SEXO": 2,
@@ -57,12 +62,12 @@ def get_data_ready() -> pd.DataFrame:
         "Q025",
     ]
 
-    # print("Verificando respostas diferentes...")
-    # limitar_respostas_diferentes(df, coluna_limites)
-    # print("Verificando linhas em branco...")
-    # remover_linhas_com_valores_em_branco(df, colunas_a_verificar)
-    # print("Verificando tipos de...")
-    # tratar_tipo_dados(df, tipos_validos)
+    print("Verificando respostas diferentes...")
+    limitar_respostas_diferentes(df, coluna_limites)
+    print("Verificando linhas em branco...")
+    remover_linhas_com_valores_em_branco(df, colunas_a_verificar)
+    print("Verificando tipos de dados...")
+    tratar_tipo_dados(df, tipos_validos)
 
     return df
 
@@ -110,3 +115,4 @@ def tratar_tipo_dados(df: pd.DataFrame, tipos_validos: list):
                 df[coluna] = df[coluna].astype(str)
         except Exception as e:
             df[coluna] = df[coluna].astype(str)
+    

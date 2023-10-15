@@ -1,6 +1,8 @@
 # trabalho-A1-LP
 Trabalho de A1 da disciplina de Linguagens de Programação EMAp 2023.2
 
+Uma prévia do trabalho, isto é, a *página html estática gerada após toda a execução*, bem como a documentação dos módulos pode ser vista no [github pages](https://wobetec.github.io/trabalho-A1-LP/)
+
 
 # Integrantes
 * Esdras Cavalcanti de Almeida
@@ -58,6 +60,6 @@ Depois utilizamos o seguinte comando dentro do diretório `\docs` para atualizar
 
     make html
 
-A documentação pode ser visualizada abrindo arquivo [index.html](docs/_build/html/index.html) ou através do github pages.
+A documentação pode ser visualizada abrindo arquivo [index.html](docs/_build/html/index.html) ou através do [github pages](https://wobetec.github.io/trabalho-A1-LP/).
 
 
