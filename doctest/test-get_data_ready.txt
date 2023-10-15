@@ -1,0 +1,42 @@
+>>> from ..data_work.get_data_ready import limitar_respostas_diferentes, remover_linhas_com_valores_em_branco, tratar_tipo_dados
+>>> import pandas as pd
+
+Teste das funções do módulo get_data_ready
+-------------------------------------------
+
+>>> data = {
+...     'Nome': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+...     'Idade': [25, 30, 35, 25, 40],
+...     'Cidade': ['Nova Iorque', 'Los Angeles', 'Chicago', 'Nova Iorque', 'Boston'],
+...     'Salario': [55000, 60000, None, 45000, 70000]
+... }
+>>> df = pd.DataFrame(data)
+
+Testando a função limitar_respostas_diferentes:
+
+>>> coluna_limites = {'Nome': 3, 'Idade': 2, 'Cidade': 3, 'Salario': 2}
+>>> limitar_respostas_diferentes(df, coluna_limites)
+>>> all(df[col].nunique() <= limit for col, limit in coluna_limites.items())
+True
+
+Testando a função remover_linhas_com_valores_em_branco:
+
+>>> colunas_a_verificar = ['Nome', 'Idade', 'Cidade', 'Salario']
+>>> remover_linhas_com_valores_em_branco(df, colunas_a_verificar)
+>>> all(col in df.columns for col in colunas_a_verificar)
+True
+>>> df.isnull().sum().sum() == 0
+True
+
+Testando a função tratar_tipo_dados:
+
+>>> tipos_validos = [int, str, float]
+>>> tratar_tipo_dados(df, tipos_validos)
+>>> all(isinstance(value, (int, str, float)) for value in df['Nome'])
+True
+>>> all(isinstance(value, (int, str, float)) for value in df['Idade'])
+True
+>>> all(isinstance(value, (int, str, float)) for value in df['Cidade'])
+True
+>>> all(isinstance(value, (int, str, float)) for value in df['Salario'])
+True
