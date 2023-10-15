@@ -1,7 +1,8 @@
 from data_work.size_manager import load_data
 import data_work.data_info as di
+import pandas as pd
 
-def get_data_ready():
+def get_data_ready() -> pd.DataFrame:
     """
     Trata os dados originais para que seja possível realizar as visualizações de dados
 
@@ -59,44 +60,40 @@ def get_data_ready():
 
     return df
 
-def limitar_respostas_diferentes(df, coluna_limites):
+def limitar_respostas_diferentes(df: pd.DataFrame, coluna_limites: dict) -> pd.DataFrame:
     """
-    Verifica e limita o número máximo de respostas diferentes dentro de um dataframe
+    Modifica o DataFrame original limitando o número máximo de respostas diferentes por coluna.
 
-        Parametros:
-        df (pd.DataFrame): Dataframe original
-        colunas_limite (dict): Dicionário com o número máximo de respostas diferentes por coluna
+    Parâmetros:
+    df (pd.DataFrame): Dataframe original
+    coluna_limites (dict): Dicionário com o número máximo de respostas diferentes por coluna
 
-        Returns:
-        dataframe_modificado (pd.DataFrame): Dataframe com as colunas limitadas
-
+    Retorna:
+    df (pd.DataFrame): O próprio DataFrame original modificado
     """
-    dataframe_modificado = df.copy()
-
     for coluna, limite_coluna in coluna_limites.items():
         contagem_valores = df[coluna].value_counts()
         respostas_mais_frequentes = contagem_valores.head(limite_coluna)
 
-        dataframe_modificado[coluna] = dataframe_modificado[coluna].apply(lambda x: x if x in respostas_mais_frequentes else None)
-    
-    return dataframe_modificado
+        df[coluna] = df[coluna].apply(lambda x: x if x in respostas_mais_frequentes else None)
 
-def remover_linhas_com_valores_em_branco(df, colunas_a_verificar):
+    return df
+
+def remover_linhas_com_valores_em_branco(df: pd.DataFrame, colunas_a_verificar: list) -> pd.DataFrame:
     """
-    Remove as linhas que contem dados nulos em determinadas colunas do dataframe
+    Remove as linhas que contêm dados nulos em determinadas colunas do dataframe e modifica o DataFrame original.
 
-        Parametros:
-        df (pd.DataFrame): Dataframe original
-        colunas_a_verificar (list): Lista de colunas a serem verificadas se possuem valores nulos
+    Parâmetros:
+    df (pd.DataFrame): Dataframe original
+    colunas_a_verificar (list): Lista de colunas a serem verificadas se possuem valores nulos
 
-        Returns:
-        dataframe_modificado (pd.DataFrame): Dataframe com a remoção das linhas com registros nulos
+    Retorna:
+    pd.DataFrame: O próprio DataFrame original modificado
     """
-    dataframe_modificado = df.copy()
-    dataframe_modificado.dropna(subset=colunas_a_verificar, inplace=True)
-    return dataframe_modificado
+    df.dropna(subset=colunas_a_verificar, inplace=True)
+    return df
 
-def tratar_tipo_dados(df, tipos_validos):
+def tratar_tipo_dados(df: pd.DataFrame, tipos_validos: list) -> pd.DataFrame:
     """
     Verifica o tipo de dado de cada coluna do dataframe original, se não for do tipo previsto transforma o dado no tipo str
 

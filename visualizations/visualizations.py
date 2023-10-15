@@ -83,15 +83,16 @@ def angelo(df: pd.DataFrame) -> tuple:
     ax = cross_tab.plot(kind="bar", stacked=True, colormap="viridis")
 
     plt.xlabel("Renda Familiar")
-    plt.ylabel("Contagem")
     plt.title("Distribuição da Faixa Etária pela Renda Familiar - Angelo")
-    ax.legend(title="Faixa Etária", loc="center left", bbox_to_anchor=(1.0, 0.5))
+    ax.get_legend().remove()
+    ax.set_ylabel("")
     plt.ticklabel_format(style="plain", axis="y")
 
     text = [
         "Observamos que, em algumas situações, pessoas com recursos financeiros limitados optam por realizar a prova após a idade média esperada.",
-        "A desigualdade social desempenha um papel crucial no acesso à educação de qualidade, e essa visualização ressalta a complexidade das decisões educacionais em um contexto de desigualdade.",
-        "A análise destaca a necessidade contínua de promover a equidade educacional e combater a desigualdade no acesso à educação."
+        "A desigualdade social desempenha um papel crucial no acesso à educação de qualidade.", 
+        "e essa visualização ressalta a complexidade das decisões educacionais em um contexto de desigualdade.",
+        "A análise destaca a necessidade contínua de promover a equidade educacional e combater a desigualdade no acesso à educação.",
         "A crítica sugere que a falta de oportunidade de estudos por conta da renda familiar acarreta no tardio ingresso no mercado de trabalho.",
     ]
 
@@ -113,21 +114,16 @@ def lara(df: pd.DataFrame) -> tuple:
         title (str): Título da visualização
     """
 
-    # Agrupa os dados por gênero e raça, também conta a quantidade em cada grupo
     grouped_data = df.groupby(["TP_COR_RACA", "TP_SEXO"]).size().unstack()
 
-    # Cores para as barras (F e M)
     cores = ["pink", "blue"]
 
-    # Cria o gráfico de barras agrupadas com as cores que escolhi
     grouped_data.plot(kind="bar", stacked=True, color=cores)
 
-    # Adiciona rótulos aos eixos e mantém os números do eixo x retos
     plt.xlabel("Raça")
     plt.ylabel("Contagem")
     plt.xticks(rotation=0)
 
-    # Adiciona título ao gráfico
     plt.title("Distribuição de Gênero por Raça no ENEM")
     text = [
         "É possível notar que os grupos 1 e 3 são os maiores, sendo então candidatos brancos ou pardos maioria no ENEM (também com um grande ppublico feminino).",

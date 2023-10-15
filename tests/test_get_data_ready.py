@@ -24,20 +24,20 @@ class TestGetDataReady(unittest.TestCase):
 
     def test_limitar_respostas_diferentes(self):
         coluna_limites = {'Nome': 3, 'Cidade': 2}
-        df_modificado = limitar_respostas_diferentes(self.df_test, coluna_limites)
-        self.assertEqual(df_modificado['Nome'].nunique(), 3)
-        self.assertEqual(df_modificado['Cidade'].nunique(), 2)
+        limitar_respostas_diferentes(self.df_test, coluna_limites)
+        self.assertEqual(self.df_test['Nome'].nunique(), 3)
+        self.assertEqual(self.df_test['Cidade'].nunique(), 2)
 
     def test_remover_linhas_com_valores_em_branco(self):
         colunas_a_verificar = ['Nome', 'Idade', 'Cidade', 'Salario']
-        df_modificado = remover_linhas_com_valores_em_branco(self.df_test, colunas_a_verificar)
-        self.assertTrue(df_modificado['Salario'].isna().sum() == 0)
+        remover_linhas_com_valores_em_branco(self.df_test, colunas_a_verificar)
+        self.assertTrue(self.df_test['Salario'].isna().sum() == 0)
 
     def test_tratar_tipo_dados(self):
         tipos_validos = [int, str]
-        df_modificado = tratar_tipo_dados(self.df_test, tipos_validos)
-        self.assertTrue(df_modificado['Idade'].dtype == int)
-        self.assertTrue(df_modificado['Cidade'].dtype == str)
+        tratar_tipo_dados(self.df_test, tipos_validos)
+        self.assertTrue(self.df_test['Idade'].dtype == int)
+        self.assertTrue(self.df_test['Cidade'].dtype == str)
 
 if __name__ == '__main__':
     unittest.main()

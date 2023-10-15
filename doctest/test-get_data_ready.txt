@@ -1,4 +1,6 @@
->>> from ..data_work.get_data_ready import limitar_respostas_diferentes, remover_linhas_com_valores_em_branco, tratar_tipo_dados
+>>> import sys
+>>> sys.pathinsert(1,"./")
+>>> from data_work.get_data_ready import *
 >>> import pandas as pd
 
 Teste das funções do módulo get_data_ready
