@@ -63,14 +63,16 @@ def esdras(df: pd.DataFrame) -> tuple:
     title = "Renda e Nota - Esdras"
 
     return get_image_to_flask(), text, title
+
 def romolo(df: pd.DataFrame) -> tuple:
     """"
-    EStrutura de visualização do Romolo
-        Parametros:
-            DataFrame com subset de microdados do ENEN : df (PANDAS Dataframe)
+    Analisa a distribuição de sexo, estado civil e cor/raça dos participantes do ENEN 2022
 
-        Returns:
-            Imagem com 3 facets, Texto com analise dos graficos e o titulo do grafico
+    Parametros:
+        DataFrame com subset de microdados do ENEN : df (PANDAS Dataframe)
+
+    Returns:
+        Imagem com 3 facets, Texto com analise dos graficos e o titulo do grafico
 
     """
     plt.style.use("ggplot")
@@ -98,7 +100,6 @@ def romolo(df: pd.DataFrame) -> tuple:
     plt.bar(rotulos, contagem_sexo, ec="black", color=cores)
     plt.xlabel("Sexo Declarado")
     plt.ylabel("contagem")
-
 
     #PLOT ESTADO CIVIL
     plt.subplot(1,3,2)
@@ -134,9 +135,9 @@ def romolo(df: pd.DataFrame) -> tuple:
     for i, valor in enumerate(percentuais):
         plt.text(i, valor, f"{valor*100:.2f}%", ha='center', va='bottom')
 
-    plt.show()
 
     #PLOT COR/RAÇA
+    plt.subplot(1,3,3)
 
     contagem_cor_raca = df["TP_COR_RACA"].value_counts()
     total = contagem_cor_raca.sum()
@@ -169,8 +170,6 @@ def romolo(df: pd.DataFrame) -> tuple:
 
     for i, valor in enumerate(percentuais):
         plt.text(i, valor, f"{valor*100:.2f}%", ha='center', va='bottom')
-
-    plt.show()
     
                     
     text = ["Foram utilizados variáveis que demomstram a demografica dos indivíduos que realizaram a prova do ENEN no ano de 2022."
@@ -178,7 +177,9 @@ def romolo(df: pd.DataFrame) -> tuple:
             "O que talvez seja o mais importante notar é que temos um baixo indice de negro e indios, fato relevenate que deve ser usado nas políticas"
             "públicas de promoção a educação"]
     
-    title = ["Perfil Demográfico dos participantes do ENEN 2022 - Romolo"]
+    title = "Perfil Demográfico dos participantes do ENEN 2022 - Romolo"
+
+    return get_image_to_flask(), text, title
 
 
 def angelo(df: pd.DataFrame) -> tuple:
@@ -271,5 +272,7 @@ def get_all_vis(df: pd.DataFrame) -> list:
     vis = []
 
     vis.append(esdras(df))
+    vis.append(lara(df))
+    vis.append(angelo(df))
     vis.append(romolo(df))
     return vis
