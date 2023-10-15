@@ -70,9 +70,23 @@ DICT_TP_SEXO = {
     "F": "Feminino",
 }
 
-DICT_TP_ESTADO_CIVIL = {}
+DICT_TP_ESTADO_CIVIL = {
+    0:"Não informado",
+    1:"Solteiro(a)",
+    2:"Casado(a)/Mora com companheiro(a)",
+    3:"Divorciado(a)/Desquitado(a)/Separado(a)",
+    4:"Viúvo(a)"
+}
 
-DICT_TP_COR_RACA = {}
+DICT_TP_COR_RACA = {
+    0:"Não declarado",
+    1:"Branca",
+    2:"Preta",
+    3:"Parda",
+    4:"Amarela",
+    5:"Indígena",
+    6:"Não dispõe da informação"
+}
 
 DICT_TP_ST_CONCLUSAO = {}
 

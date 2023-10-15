@@ -54,9 +54,9 @@ def get_data_ready() -> pd.DataFrame:
     "Q025",
     ]
 
-    limitar_respostas_diferentes(df,coluna_limites)
-    remover_linhas_com_valores_em_branco(df,colunas_a_verificar)
-    tratar_tipo_dados(df, tipos_validos)
+    # limitar_respostas_diferentes(df,coluna_limites)
+    # remover_linhas_com_valores_em_branco(df,colunas_a_verificar)
+    # tratar_tipo_dados(df, tipos_validos)
 
     return df
 

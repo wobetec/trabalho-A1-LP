@@ -98,6 +98,10 @@ section.group {
     justify-content: center;
 }
 
+.chart img {
+    width: 100%;
+}
+
 .perfil-box {
     width: 100%;
     display: flex;
