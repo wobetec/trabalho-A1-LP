@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-BR" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>visualizations module &mdash; documentação trabalho-a1-lp </title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8946c2f5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=000972dd"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Buscar" href="search.html" />
+    <link rel="prev" title="data_work module" href="data_work.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            trabalho-a1-lp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Pesquisar documentos" aria-label="Pesquisar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
+              <p class="caption" role="heading"><span class="caption-text">Módulos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data_work.html">data_work module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">visualizations module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-visualizations">visualizations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#visualizations.get_all_vis"><code class="docutils literal notranslate"><span class="pre">get_all_vis()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-visualizations.utils">utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#visualizations.utils.get_image_to_flask"><code class="docutils literal notranslate"><span class="pre">get_image_to_flask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-visualizations.esdras">esdras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#visualizations.esdras.esdras"><code class="docutils literal notranslate"><span class="pre">esdras()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-visualizations.lara">lara</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#visualizations.lara.lara"><code class="docutils literal notranslate"><span class="pre">lara()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-visualizations.angelo">angelo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#visualizations.angelo.angelo"><code class="docutils literal notranslate"><span class="pre">angelo()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-visualizations.romolo">romolo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#visualizations.romolo.romolo"><code class="docutils literal notranslate"><span class="pre">romolo()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Menu de navegação móvel" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trabalho-a1-lp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Navegação da página">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">visualizations module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/visualizations.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="visualizations-module">
+<h1>visualizations module<a class="headerlink" href="#visualizations-module" title="Link to this heading"></a></h1>
+<section id="module-visualizations">
+<span id="visualizations"></span><h2>visualizations<a class="headerlink" href="#module-visualizations" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="visualizations.get_all_vis">
+<span class="sig-prename descclassname"><span class="pre">visualizations.</span></span><span class="sig-name descname"><span class="pre">get_all_vis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#visualizations.get_all_vis" title="Link to this definition"></a></dt>
+<dd><p>Retorna uma lista com todas as visualizações, de cada membro.</p>
+<dl class="simple">
+<dt>Parametros:</dt><dd><p>df (pd.DataFrame): DataFrame com os dados</p>
+</dd>
+<dt>Returns:</dt><dd><p>vis (list): Lista com todas as visualizações</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-visualizations.utils">
+<span id="utils"></span><h2>utils<a class="headerlink" href="#module-visualizations.utils" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="visualizations.utils.get_image_to_flask">
+<span class="sig-prename descclassname"><span class="pre">visualizations.utils.</span></span><span class="sig-name descname"><span class="pre">get_image_to_flask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plt</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#visualizations.utils.get_image_to_flask" title="Link to this definition"></a></dt>
+<dd><p>Transforma a figura do matplotlib em uma sequência de bytes para ser usada no Flask e retorna a tag imagem já com esses bytes</p>
+<p>Parametros:</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>image (str): Tag imagem com os bytes da figura</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-visualizations.esdras">
+<span id="esdras"></span><h2>esdras<a class="headerlink" href="#module-visualizations.esdras" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="visualizations.esdras.esdras">
+<span class="sig-prename descclassname"><span class="pre">visualizations.esdras.</span></span><span class="sig-name descname"><span class="pre">esdras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#visualizations.esdras.esdras" title="Link to this definition"></a></dt>
+<dd><p>Seguindo a estrutura padrão definida, esta função gera uma visualização comparando a influência da renda familiar na média das notas do enem.</p>
+<dl class="simple">
+<dt>Parametros:</dt><dd><p>df (pd.DataFrame): DataFrame com os dados</p>
+</dd>
+<dt>Returns:</dt><dd><p>image (str): Tag imagem com os bytes da figura
+text (list): Lista com os textos para serem exibidos na página
+title (str): Título da visualização</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-visualizations.lara">
+<span id="lara"></span><h2>lara<a class="headerlink" href="#module-visualizations.lara" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="visualizations.lara.lara">
+<span class="sig-prename descclassname"><span class="pre">visualizations.lara.</span></span><span class="sig-name descname"><span class="pre">lara</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#visualizations.lara.lara" title="Link to this definition"></a></dt>
+<dd><p>Visualização que mostra a porcentagem de participantes do gênero feminino e masculino, separando pelas raças também declaradas por esses participantes.</p>
+<dl class="simple">
+<dt>Parametros:</dt><dd><p>df (pd.DataFrame): DataFrame com os dados</p>
+</dd>
+<dt>Returns:</dt><dd><p>image (str): Tag imagem com os bytes da figura
+text (list): Lista com os textos para serem exibidos na página
+title (str): Título da visualização</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-visualizations.angelo">
+<span id="angelo"></span><h2>angelo<a class="headerlink" href="#module-visualizations.angelo" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="visualizations.angelo.angelo">
+<span class="sig-prename descclassname"><span class="pre">visualizations.angelo.</span></span><span class="sig-name descname"><span class="pre">angelo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#visualizations.angelo.angelo" title="Link to this definition"></a></dt>
+<dd><p>Estrutura padrão com a visualização do Angelo</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Parametros:</dt><dd><p>df (pd.DataFrame): DataFrame com os dados</p>
+</dd>
+<dt>Returns:</dt><dd><p>image (str): Tag imagem com os bytes da figura
+text (list): Lista com os textos para serem exibidos na página
+title (str): Título da visualização</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</section>
+<section id="module-visualizations.romolo">
+<span id="romolo"></span><h2>romolo<a class="headerlink" href="#module-visualizations.romolo" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="visualizations.romolo.romolo">
+<span class="sig-prename descclassname"><span class="pre">visualizations.romolo.</span></span><span class="sig-name descname"><span class="pre">romolo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#visualizations.romolo.romolo" title="Link to this definition"></a></dt>
+<dd><p>”
+Analisa a distribuição de sexo, estado civil e cor/raça dos participantes do ENEN 2022</p>
+<dl class="simple">
+<dt>Parametros:</dt><dd><p>DataFrame com subset de microdados do ENEN : df (PANDAS Dataframe)</p>
+</dd>
+<dt>Returns:</dt><dd><p>Imagem com 3 facets, Texto com analise dos graficos e o titulo do grafico</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Rodapé">
+        <a href="data_work.html" class="btn btn-neutral float-left" title="data_work module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Direitos autorais 2023, group.</p>
+  </div>
+
+  Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

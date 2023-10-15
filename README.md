@@ -44,6 +44,9 @@ Para executar os testes é possível rodar cara arquivo `test_*` em `/tests` ou 
 
 
 ## DocTest
+Para executar os doctests basta rodar o arquivo `.py` dentro de `/doctest`:
+
+    python .\doctest\run_tests.py
 
 
 # Documentação

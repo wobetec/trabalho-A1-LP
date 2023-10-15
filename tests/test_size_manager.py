@@ -25,9 +25,7 @@ df_test = pd.DataFrame(
 class TestSizeManager(unittest.TestCase):
     def test_path_to(self):
         path_example = "data/teste.csv"
-        self.assertEqual(
-            path_to("teste", "csv")[-len(path_example) :], "data/teste.csv"
-        )
+        self.assertEqual(path_to("teste", "csv")[-len(path_example) :], path_example)
 
     def test_crop_data(self):
         df_cropped = crop_data(df_test, ["Nome", "Idade"])
@@ -54,6 +52,7 @@ class TestSizeManager(unittest.TestCase):
         os.remove(path_to("teste_1", "csv"))
         os.remove(path_to("teste_2", "zip"))
         os.remove(path_to("teste_3", "csv"))
+
 
 if __name__ == "__main__":
     unittest.main()

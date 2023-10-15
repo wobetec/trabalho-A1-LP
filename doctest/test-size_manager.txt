@@ -1,0 +1,64 @@
+>>> import sys
+>>> import pandas as pd
+>>> import os
+
+>>> sys.path.insert(1,"./")
+
+>>> from data_work.size_manager import *
+
+Teste das funções do módulo size_manager
+-------------------------------------------
+
+>>> df = pd.DataFrame({
+...     "Nome": ["Alice", "Bob", "Charlie", "David", "Eve"],
+...     "Idade": [25, 30, 35, 28, 22],
+...     "Cidade": [
+...         "Nova York",
+...         "Los Angeles",
+...         "Chicago",
+...         "San Francisco",
+...         "Miami",
+...     ],
+... })
+
+Testando a função path_to:
+
+>>> path_example = "data/teste.csv"
+>>> path_to("teste", "csv")[-len(path_example) :] == path_example
+True
+
+Testando a função crop_data:
+
+>>> df_cropped = crop_data(df, ["Nome", "Idade"])
+>>> df_cropped.columns.tolist() == ["Nome", "Idade"]
+True
+
+Testando a função save_data:
+
+>>> save_data(df, "teste_1")
+>>> os.path.exists(path_to("teste_1", "csv"))
+True
+
+Testando a função zip_file:
+
+>>> zip_file("teste_1")
+>>> os.path.exists(path_to("teste_1", "zip"))
+True
+
+Testando a função unzip_file:
+
+>>> os.remove(path_to("teste_1", "csv"))
+>>> unzip_file("teste_1")
+>>> os.path.exists(path_to("teste_1", "csv"))
+True
+
+Testando a função load_data:
+
+>>> df_loaded = load_data("teste_1")
+>>> df_loaded.equals(df)
+True
+
+Limpando arquivos de teste:
+>>> os.remove(path_to("teste_1", "csv"))
+>>> os.remove(path_to("teste_1", "zip"))
+

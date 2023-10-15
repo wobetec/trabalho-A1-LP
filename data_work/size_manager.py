@@ -8,6 +8,7 @@ import os
 
 DATA_FOLDER = "../data/"
 
+
 def path_to(file_name="", extension="") -> str:
     """
     Gera o absolute path para um caminho específico, baseado no diretório no qual está sendo executado, utilizando como base a pasta /data
@@ -18,7 +19,7 @@ def path_to(file_name="", extension="") -> str:
 
     Returns:
         data_path (str): Absolute path para o arquivo
-    
+
     """
     relative = DATA_FOLDER
 
@@ -38,7 +39,7 @@ def unzip_file(file_name: str) -> None:
         file_name (str): Nome do arquivo
 
     Returns:
-    
+
     """
     with ZipFile(path_to(file_name, "zip"), "r") as zip_ref:
         zip_ref.extractall(path_to())
@@ -52,7 +53,7 @@ def zip_file(file_name: str) -> None:
         file_name (str): Nome do arquivo
 
     Returns:
-    
+
     """
     with ZipFile(path_to(file_name, "zip"), "w", ZIP_DEFLATED) as zip_ref:
         zip_ref.write(path_to(file_name, "csv"), arcname=file_name + ".csv")
@@ -68,7 +69,7 @@ def crop_data(df: pd.DataFrame, columns: list) -> pd.DataFrame:
 
     Returns:
         new_df (pd.DataFrame): DataFrame com os dados cortados
-    
+
     """
 
     new_df = df[columns]
@@ -85,7 +86,7 @@ def save_data(df: pd.DataFrame, file_name: str) -> None:
         file_name (str): Nome do arquivo
 
     Returns:
-    
+
     """
     df.to_csv(path_to(file_name, "csv"), index=False, encoding="ISO-8859-1", sep=";")
 
@@ -99,7 +100,7 @@ def load_data(file_name: str) -> pd.DataFrame:
 
     Returns:
         df (pd.DataFrame): DataFrame com os dados
-    
+
     """
 
     df = pd.read_csv(path_to(file_name, "csv"), encoding="ISO-8859-1", sep=";")
@@ -117,12 +118,14 @@ def create_data():
     Parametros:
 
     Returns:
-    
+
     """
     if not os.path.exists(path_to(di.FILE_NAMES["full_file"], "csv")):
-        print("Arquivo orignal nao encontrado, por favor, baixe o arquivo e tente novamente.")
+        print(
+            "Arquivo orignal nao encontrado, por favor, baixe o arquivo e tente novamente."
+        )
         return
-    
+
     print("Abrindo arquivo original...")
     full_df = load_data(di.FILE_NAMES["full_file"])
 
@@ -145,17 +148,19 @@ def initialize_data():
     Parametros:
 
     Returns:
-    
+
     """
 
     if os.path.exists(path_to(di.FILE_NAMES["small_file"], "csv")):
         print("O arquivo menor já foi descompactado.")
         return
-    
+
     if not os.path.exists(path_to(di.FILE_NAMES["small_file"], "zip")):
-        print("Arquivo menor nao encontrado, por favor, crie o arquivo e tente novamente.")
+        print(
+            "Arquivo menor nao encontrado, por favor, crie o arquivo e tente novamente."
+        )
         raise FileExistsError
-    
+
     print("Descompactando o arquivo...")
     unzip_file(di.FILE_NAMES["small_file"])
 
