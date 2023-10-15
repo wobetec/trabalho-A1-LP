@@ -12,7 +12,7 @@ def get_data_ready() -> pd.DataFrame:
         df (pd.DataFrame): Dataframe pronto para ser construido visualizações
     """
     df = load_data(di.FILE_NAMES["small_file"])
-    tipos_validos = [int, str, float]
+    tipos_validos = [int,str,float]
     coluna_limites = {"TP_FAIXA_ETARIA": 20,
     "TP_SEXO": 2,
     "TP_ESTADO_CIVIL": 5,
@@ -54,22 +54,19 @@ def get_data_ready() -> pd.DataFrame:
     "Q025",
     ]
 
-    # limitar_respostas_diferentes(df,coluna_limites)
-    # remover_linhas_com_valores_em_branco(df,colunas_a_verificar)
-    # tratar_tipo_dados(df, tipos_validos)
+    limitar_respostas_diferentes(df,coluna_limites)
+    remover_linhas_com_valores_em_branco(df,colunas_a_verificar)
+    tratar_tipo_dados(df, tipos_validos)
 
     return df
 
-def limitar_respostas_diferentes(df: pd.DataFrame, coluna_limites: dict) -> pd.DataFrame:
+def limitar_respostas_diferentes(df: pd.DataFrame, coluna_limites: dict):
     """
     Modifica o DataFrame original limitando o número máximo de respostas diferentes por coluna.
 
     Parâmetros:
     df (pd.DataFrame): Dataframe original
     coluna_limites (dict): Dicionário com o número máximo de respostas diferentes por coluna
-
-    Retorna:
-    df (pd.DataFrame): O próprio DataFrame original modificado
     """
     for coluna, limite_coluna in coluna_limites.items():
         contagem_valores = df[coluna].value_counts()
@@ -77,40 +74,29 @@ def limitar_respostas_diferentes(df: pd.DataFrame, coluna_limites: dict) -> pd.D
 
         df[coluna] = df[coluna].apply(lambda x: x if x in respostas_mais_frequentes else None)
 
-    return df
-
-def remover_linhas_com_valores_em_branco(df: pd.DataFrame, colunas_a_verificar: list) -> pd.DataFrame:
+def remover_linhas_com_valores_em_branco(df: pd.DataFrame, colunas_a_verificar: list):
     """
     Remove as linhas que contêm dados nulos em determinadas colunas do dataframe e modifica o DataFrame original.
 
     Parâmetros:
     df (pd.DataFrame): Dataframe original
     colunas_a_verificar (list): Lista de colunas a serem verificadas se possuem valores nulos
-
-    Retorna:
-    pd.DataFrame: O próprio DataFrame original modificado
     """
     df.dropna(subset=colunas_a_verificar, inplace=True)
-    return df
 
-def tratar_tipo_dados(df: pd.DataFrame, tipos_validos: list) -> pd.DataFrame:
+def tratar_tipo_dados(df: pd.DataFrame, tipos_validos: list):
     """
     Verifica o tipo de dado de cada coluna do dataframe original, se não for do tipo previsto transforma o dado no tipo str
 
-        Parametros:
-        df (pd.DataFrame): Dataframe original
-        tipos_validos (list): Lista com os tipos de dados que serão aceitos dentro do dataframe
-
-        Returns:
-        df (pd.DataFrame): Dataframe com os tipos de dados tratados
+    Parâmetros:
+    df (pd.DataFrame): Dataframe original
+    tipos_validos (list): Lista com os tipos de dados que serão aceitos dentro do dataframe
     """
     for coluna in df.columns:
         try:
             tipo_coluna = df[coluna].dtype
-            if tipo_coluna not in tipos_validos:
+            if not any(isinstance(tipo_coluna, tipo) for tipo in tipos_validos):
                 df[coluna] = df[coluna].astype(str)
         except Exception as e:
             df[coluna] = df[coluna].astype(str)
-    
-    return df
 

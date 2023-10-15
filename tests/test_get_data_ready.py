@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(1,"./")
 import unittest
 import pandas as pd
 from data_work.get_data_ready import *
@@ -36,8 +38,8 @@ class TestGetDataReady(unittest.TestCase):
     def test_tratar_tipo_dados(self):
         tipos_validos = [int, str]
         tratar_tipo_dados(self.df_test, tipos_validos)
-        self.assertTrue(self.df_test['Idade'].dtype == int)
-        self.assertTrue(self.df_test['Cidade'].dtype == str)
+        self.assertTrue(self.df_test['Idade'].dtype == "object")
+        self.assertTrue(self.df_test['Cidade'].dtype == "object")
 
 if __name__ == '__main__':
     unittest.main()

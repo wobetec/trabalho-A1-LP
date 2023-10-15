@@ -1,5 +1,5 @@
 >>> import sys
->>> sys.pathinsert(1,"./")
+>>> sys.path.insert(1,"./")
 >>> from data_work.get_data_ready import *
 >>> import pandas as pd
 
