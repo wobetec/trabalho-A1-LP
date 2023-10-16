@@ -1,3 +1,7 @@
+"""
+Esse módulo contém as visualizações e retornar elas de forma a serem renderizadas pelo flask.
+"""
+
 import pandas as pd
 
 from visualizations.esdras import esdras

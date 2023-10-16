@@ -5,8 +5,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>data_work module &mdash; documentação trabalho-a1-lp </title>
-      <link rel="stylesheet" href="trabalho-A1-LP/github_pages/documentation/html/_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="trabalho-A1-LP/github_pages/documentation/html/_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="./_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="./_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -86,7 +86,7 @@
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">data_work module</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/data_work.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
+            <a href="./_sources/data_work.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
       </li>
   </ul>
   <hr/>
@@ -102,42 +102,47 @@
 </section>
 <section id="module-data_work.get_data_ready">
 <span id="get-data-ready"></span><h2>get_data_ready<a class="headerlink" href="#module-data_work.get_data_ready" title="Link to this heading"></a></h2>
+<p>Módulo responsável por tratar/verificar os dados e retornar o dataframe pronto para ser utilizado nas visualizações.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="data_work.get_data_ready.get_data_ready">
 <span class="sig-prename descclassname"><span class="pre">data_work.get_data_ready.</span></span><span class="sig-name descname"><span class="pre">get_data_ready</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#data_work.get_data_ready.get_data_ready" title="Link to this definition"></a></dt>
 <dd><p>Trata os dados originais para que seja possível realizar as visualizações de dados</p>
-<blockquote>
-<div><p>Parametros:</p>
+<p>Parametros:</p>
 <p>Returns:
 df (pd.DataFrame): Dataframe pronto para ser construido visualizações</p>
-</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="data_work.get_data_ready.limitar_respostas_diferentes">
 <span class="sig-prename descclassname"><span class="pre">data_work.get_data_ready.</span></span><span class="sig-name descname"><span class="pre">limitar_respostas_diferentes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coluna_limites</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data_work.get_data_ready.limitar_respostas_diferentes" title="Link to this definition"></a></dt>
 <dd><p>Modifica o DataFrame original limitando o número máximo de respostas diferentes por coluna.</p>
-<p>Parâmetros:
-df (pd.DataFrame): Dataframe original
+<dl class="simple">
+<dt>Parâmetros:</dt><dd><p>df (pd.DataFrame): Dataframe original
 coluna_limites (dict): Dicionário com o número máximo de respostas diferentes por coluna</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="data_work.get_data_ready.remover_linhas_com_valores_em_branco">
 <span class="sig-prename descclassname"><span class="pre">data_work.get_data_ready.</span></span><span class="sig-name descname"><span class="pre">remover_linhas_com_valores_em_branco</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colunas_a_verificar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data_work.get_data_ready.remover_linhas_com_valores_em_branco" title="Link to this definition"></a></dt>
 <dd><p>Remove as linhas que contêm dados nulos em determinadas colunas do dataframe e modifica o DataFrame original.</p>
-<p>Parâmetros:
-df (pd.DataFrame): Dataframe original
+<dl class="simple">
+<dt>Parâmetros:</dt><dd><p>df (pd.DataFrame): Dataframe original
 colunas_a_verificar (list): Lista de colunas a serem verificadas se possuem valores nulos</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="data_work.get_data_ready.tratar_tipo_dados">
 <span class="sig-prename descclassname"><span class="pre">data_work.get_data_ready.</span></span><span class="sig-name descname"><span class="pre">tratar_tipo_dados</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipos_validos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data_work.get_data_ready.tratar_tipo_dados" title="Link to this definition"></a></dt>
 <dd><p>Verifica o tipo de dado de cada coluna do dataframe original, se não for do tipo previsto transforma o dado no tipo str</p>
-<p>Parâmetros:
-df (pd.DataFrame): Dataframe original
+<dl class="simple">
+<dt>Parâmetros:</dt><dd><p>df (pd.DataFrame): Dataframe original
 tipos_validos (list): Lista com os tipos de dados que serão aceitos dentro do dataframe</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -147,15 +152,7 @@ tipos_validos (list): Lista com os tipos de dados que serão aceitos dentro do d
 <dl class="py function">
 <dt class="sig sig-object py" id="data_work.size_manager.create_data">
 <span class="sig-prename descclassname"><span class="pre">data_work.size_manager.</span></span><span class="sig-name descname"><span class="pre">create_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_work.size_manager.create_data" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Driver function para:</dt><dd><p>1- Carregar arquivo original
-2- Cortar o arquivo original
-3- Salvar o arquivo cortado
-4- Compactar o arquivo cortado</p>
-</dd>
-</dl>
-<p>Parametros:</p>
-<p>Returns:</p>
+<dd><p>Driver function para carregar arquivo origina, cortar o arquivo origina, salvar o arquivo cortado e compactar o arquivo cortado</p>
 </dd></dl>
 
 <dl class="py function">
@@ -163,7 +160,7 @@ tipos_validos (list): Lista com os tipos de dados que serão aceitos dentro do d
 <span class="sig-prename descclassname"><span class="pre">data_work.size_manager.</span></span><span class="sig-name descname"><span class="pre">crop_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#data_work.size_manager.crop_data" title="Link to this definition"></a></dt>
 <dd><p>Corta os dados originais, ficando só com as colunas desejadas</p>
 <dl class="simple">
-<dt>Parametros:</dt><dd><p>df (pd.DataFrame): DataFrame com os dados originais
+<dt>Parâmetros:</dt><dd><p>df (pd.DataFrame): DataFrame com os dados originais
 columns (list): Lista com as colunas desejadas</p>
 </dd>
 <dt>Returns:</dt><dd><p>new_df (pd.DataFrame): DataFrame com os dados cortados</p>
@@ -175,8 +172,6 @@ columns (list): Lista com as colunas desejadas</p>
 <dt class="sig sig-object py" id="data_work.size_manager.initialize_data">
 <span class="sig-prename descclassname"><span class="pre">data_work.size_manager.</span></span><span class="sig-name descname"><span class="pre">initialize_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_work.size_manager.initialize_data" title="Link to this definition"></a></dt>
 <dd><p>Driver function para descompactar o arquivo menor caso não tenha sido previamente</p>
-<p>Parametros:</p>
-<p>Returns:</p>
 </dd></dl>
 
 <dl class="py function">
@@ -184,7 +179,7 @@ columns (list): Lista com as colunas desejadas</p>
 <span class="sig-prename descclassname"><span class="pre">data_work.size_manager.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#data_work.size_manager.load_data" title="Link to this definition"></a></dt>
 <dd><p>Carrega um arquivo csv em um dataframe</p>
 <dl class="simple">
-<dt>Parametros:</dt><dd><p>file_name (str): Nome do arquivo</p>
+<dt>Parâmetros:</dt><dd><p>file_name (str): Nome do arquivo</p>
 </dd>
 <dt>Returns:</dt><dd><p>df (pd.DataFrame): DataFrame com os dados</p>
 </dd>
@@ -196,7 +191,7 @@ columns (list): Lista com as colunas desejadas</p>
 <span class="sig-prename descclassname"><span class="pre">data_work.size_manager.</span></span><span class="sig-name descname"><span class="pre">path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#data_work.size_manager.path_to" title="Link to this definition"></a></dt>
 <dd><p>Gera o absolute path para um caminho específico, baseado no diretório no qual está sendo executado, utilizando como base a pasta /data</p>
 <dl class="simple">
-<dt>Parametros:</dt><dd><p>file_name (str): Nome do arquivo
+<dt>Parâmetros:</dt><dd><p>file_name (str): Nome do arquivo
 extension (str): Extensão do arquivo</p>
 </dd>
 <dt>Returns:</dt><dd><p>data_path (str): Absolute path para o arquivo</p>
@@ -209,11 +204,10 @@ extension (str): Extensão do arquivo</p>
 <span class="sig-prename descclassname"><span class="pre">data_work.size_manager.</span></span><span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#data_work.size_manager.save_data" title="Link to this definition"></a></dt>
 <dd><p>Salva um dataframe em um arquivo csv</p>
 <dl class="simple">
-<dt>Parametros:</dt><dd><p>df (pd.DataFrame): DataFrame com os dados
+<dt>Parâmetros:</dt><dd><p>df (pd.DataFrame): DataFrame com os dados
 file_name (str): Nome do arquivo</p>
 </dd>
 </dl>
-<p>Returns:</p>
 </dd></dl>
 
 <dl class="py function">
@@ -221,10 +215,9 @@ file_name (str): Nome do arquivo</p>
 <span class="sig-prename descclassname"><span class="pre">data_work.size_manager.</span></span><span class="sig-name descname"><span class="pre">unzip_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#data_work.size_manager.unzip_file" title="Link to this definition"></a></dt>
 <dd><p>Descompacta um arquivo zipado dentro de /data</p>
 <dl class="simple">
-<dt>Parametros:</dt><dd><p>file_name (str): Nome do arquivo</p>
+<dt>Parâmetros:</dt><dd><p>file_name (str): Nome do arquivo</p>
 </dd>
 </dl>
-<p>Returns:</p>
 </dd></dl>
 
 <dl class="py function">
@@ -232,10 +225,9 @@ file_name (str): Nome do arquivo</p>
 <span class="sig-prename descclassname"><span class="pre">data_work.size_manager.</span></span><span class="sig-name descname"><span class="pre">zip_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#data_work.size_manager.zip_file" title="Link to this definition"></a></dt>
 <dd><p>Compacta um arquivo csv dentro de /data</p>
 <dl class="simple">
-<dt>Parametros:</dt><dd><p>file_name (str): Nome do arquivo</p>
+<dt>Parâmetros:</dt><dd><p>file_name (str): Nome do arquivo</p>
 </dd>
 </dl>
-<p>Returns:</p>
 </dd></dl>
 
 </section>

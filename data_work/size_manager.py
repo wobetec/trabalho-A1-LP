@@ -1,5 +1,5 @@
-"""Este módulo é responsável por lidar com a compactação e descompactação dos arquivos, além de cortar os dados originais para gerar um arquivo menor e encapsular a utilização da pasta de dados.
-
+"""
+Este módulo é responsável por lidar com a compactação e descompactação dos arquivos, além de cortar os dados originais para gerar um arquivo menor e encapsular a utilização da pasta de dados.
 """
 import pandas as pd
 import data_work.data_info as di

@@ -1,5 +1,5 @@
 """
-    Esse arquivo contém as listas e dicionários referentes aos dados. Como por exemplo os nomes dos aquivos .csv, as colunas que serão utilizadas e as equivalências entre os códigos e os valores reais do dataset utilizado.
+Esse arquivo contém as listas e dicionários referentes aos dados. Como por exemplo os nomes dos aquivos .csv, as colunas que serão utilizadas e as equivalências entre os códigos e os valores reais do dataset utilizado.
 """
 
 FILE_NAMES = {

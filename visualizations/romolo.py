@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 
 def romolo(df: pd.DataFrame) -> tuple:
     """
-    Analisa a distribuição de sexo, estado civil e cor/raça dos participantes do ENEN 2022
+    Analisa a distribuição de sexo, estado civil e cor/raça dos participantes do Enem 2022
 
     Parametros:
-        DataFrame com subset de microdados do ENEN : df (PANDAS Dataframe)
+        DataFrame com subset de microdados do Enem : df (PANDAS Dataframe)
 
     Returns:
         Imagem com 3 facets, Texto com analise dos graficos e o titulo do grafico
@@ -112,12 +112,12 @@ def romolo(df: pd.DataFrame) -> tuple:
         plt.text(i, valor, f"{valor*100:.2f}%", ha="center", va="bottom")
 
     text = [
-        "Foram utilizados variáveis que demomstram a demografica dos indivíduos que realizaram a prova do ENEN no ano de 2022."
-        "Na atualidade, o jovem que se submete a prova do ENEN é do sexo feminino (61%), solteira (90%) se auto-declarando parda e branca (80%)."
+        "Foram utilizados variáveis que demomstram a demografica dos indivíduos que realizaram a prova do Enem no ano de 2022."
+        "Na atualidade, o jovem que se submete a prova do Enem é do sexo feminino (61%), solteira (90%) se auto-declarando parda e branca (80%)."
         "O que talvez seja o mais importante notar é que temos um baixo indice de negro e indios, fato relevenate que deve ser usado nas políticas"
         "públicas de promoção a educação"
     ]
 
-    title = "Perfil Demográfico dos participantes do ENEN 2022 - Romolo"
+    title = "Perfil Demográfico dos participantes do Enem 2022 - Romolo"
 
     return get_image_to_flask(plt), text, title

@@ -1,3 +1,7 @@
+"""
+Módulo responsável por tratar/verificar os dados e retornar o dataframe pronto para ser utilizado nas visualizações.
+"""
+
 from data_work.size_manager import load_data
 import data_work.data_info as di
 import pandas as pd
@@ -8,10 +12,8 @@ def get_data_ready() -> pd.DataFrame:
     """
     Trata os dados originais para que seja possível realizar as visualizações de dados
 
-    Parametros:
-
     Returns:
-    df (pd.DataFrame): Dataframe pronto para ser construido visualizações
+        df (pd.DataFrame): Dataframe pronto para ser construido visualizações
     """
     df = load_data(di.FILE_NAMES["small_file"])
     tipos_validos = [
