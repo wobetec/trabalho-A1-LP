@@ -6,13 +6,13 @@ def angelo(df: pd.DataFrame) -> tuple:
     """
     Estrutura padrão com a visualização do Angelo
 
-        Parametros:
-            df (pd.DataFrame): DataFrame com os dados
+    Parametros:
+        df (pd.DataFrame): DataFrame com os dados
 
-        Returns:
-            image (str): Tag imagem com os bytes da figura
-            text (list): Lista com os textos para serem exibidos na página
-            title (str): Título da visualização
+    Returns:
+        image (str): Tag imagem com os bytes da figura
+        text (list): Lista com os textos para serem exibidos na página
+        title (str): Título da visualização
 
     """
     cross_tab = pd.crosstab(df["Q006"], df["TP_FAIXA_ETARIA"])

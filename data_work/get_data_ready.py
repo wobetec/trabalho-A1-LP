@@ -8,10 +8,10 @@ def get_data_ready() -> pd.DataFrame:
     """
     Trata os dados originais para que seja possível realizar as visualizações de dados
 
-        Parametros:
+    Parametros:
 
-        Returns:
-        df (pd.DataFrame): Dataframe pronto para ser construido visualizações
+    Returns:
+    df (pd.DataFrame): Dataframe pronto para ser construido visualizações
     """
     df = load_data(di.FILE_NAMES["small_file"])
     tipos_validos = [
@@ -77,8 +77,8 @@ def limitar_respostas_diferentes(df: pd.DataFrame, coluna_limites: dict):
     Modifica o DataFrame original limitando o número máximo de respostas diferentes por coluna.
 
     Parâmetros:
-    df (pd.DataFrame): Dataframe original
-    coluna_limites (dict): Dicionário com o número máximo de respostas diferentes por coluna
+        df (pd.DataFrame): Dataframe original
+        coluna_limites (dict): Dicionário com o número máximo de respostas diferentes por coluna
     """
     for coluna, limite_coluna in coluna_limites.items():
         contagem_valores = df[coluna].value_counts()
@@ -94,8 +94,8 @@ def remover_linhas_com_valores_em_branco(df: pd.DataFrame, colunas_a_verificar: 
     Remove as linhas que contêm dados nulos em determinadas colunas do dataframe e modifica o DataFrame original.
 
     Parâmetros:
-    df (pd.DataFrame): Dataframe original
-    colunas_a_verificar (list): Lista de colunas a serem verificadas se possuem valores nulos
+        df (pd.DataFrame): Dataframe original
+        colunas_a_verificar (list): Lista de colunas a serem verificadas se possuem valores nulos
     """
     df.dropna(subset=colunas_a_verificar, inplace=True)
 
@@ -105,8 +105,8 @@ def tratar_tipo_dados(df: pd.DataFrame, tipos_validos: list):
     Verifica o tipo de dado de cada coluna do dataframe original, se não for do tipo previsto transforma o dado no tipo str
 
     Parâmetros:
-    df (pd.DataFrame): Dataframe original
-    tipos_validos (list): Lista com os tipos de dados que serão aceitos dentro do dataframe
+        df (pd.DataFrame): Dataframe original
+        tipos_validos (list): Lista com os tipos de dados que serão aceitos dentro do dataframe
     """
     for coluna in df.columns:
         try:

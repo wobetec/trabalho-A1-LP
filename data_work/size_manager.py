@@ -13,7 +13,7 @@ def path_to(file_name="", extension="") -> str:
     """
     Gera o absolute path para um caminho específico, baseado no diretório no qual está sendo executado, utilizando como base a pasta /data
 
-    Parametros:
+    Parâmetros:
         file_name (str): Nome do arquivo
         extension (str): Extensão do arquivo
 
@@ -35,11 +35,8 @@ def unzip_file(file_name: str) -> None:
     """
     Descompacta um arquivo zipado dentro de /data
 
-    Parametros:
+    Parâmetros:
         file_name (str): Nome do arquivo
-
-    Returns:
-
     """
     with ZipFile(path_to(file_name, "zip"), "r") as zip_ref:
         zip_ref.extractall(path_to())
@@ -49,11 +46,8 @@ def zip_file(file_name: str) -> None:
     """
     Compacta um arquivo csv dentro de /data
 
-    Parametros:
+    Parâmetros:
         file_name (str): Nome do arquivo
-
-    Returns:
-
     """
     with ZipFile(path_to(file_name, "zip"), "w", ZIP_DEFLATED) as zip_ref:
         zip_ref.write(path_to(file_name, "csv"), arcname=file_name + ".csv")
@@ -63,7 +57,7 @@ def crop_data(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     """
     Corta os dados originais, ficando só com as colunas desejadas
 
-    Parametros:
+    Parâmetros:
         df (pd.DataFrame): DataFrame com os dados originais
         columns (list): Lista com as colunas desejadas
 
@@ -81,12 +75,9 @@ def save_data(df: pd.DataFrame, file_name: str) -> None:
     """
     Salva um dataframe em um arquivo csv
 
-    Parametros:
+    Parâmetros:
         df (pd.DataFrame): DataFrame com os dados
         file_name (str): Nome do arquivo
-
-    Returns:
-
     """
     df.to_csv(path_to(file_name, "csv"), index=False, encoding="ISO-8859-1", sep=";")
 
@@ -95,7 +86,7 @@ def load_data(file_name: str) -> pd.DataFrame:
     """
     Carrega um arquivo csv em um dataframe
 
-    Parametros:
+    Parâmetros:
         file_name (str): Nome do arquivo
 
     Returns:
@@ -109,16 +100,7 @@ def load_data(file_name: str) -> pd.DataFrame:
 
 def create_data():
     """
-    Driver function para:
-        1- Carregar arquivo original
-        2- Cortar o arquivo original
-        3- Salvar o arquivo cortado
-        4- Compactar o arquivo cortado
-
-    Parametros:
-
-    Returns:
-
+    Driver function para carregar arquivo origina, cortar o arquivo origina, salvar o arquivo cortado e compactar o arquivo cortado
     """
     if not os.path.exists(path_to(di.FILE_NAMES["full_file"], "csv")):
         print(
@@ -144,11 +126,6 @@ def create_data():
 def initialize_data():
     """
     Driver function para descompactar o arquivo menor caso não tenha sido previamente
-
-    Parametros:
-
-    Returns:
-
     """
 
     if os.path.exists(path_to(di.FILE_NAMES["small_file"], "csv")):

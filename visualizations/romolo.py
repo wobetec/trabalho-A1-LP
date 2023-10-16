@@ -3,7 +3,7 @@ from visualizations.utils import get_image_to_flask
 import matplotlib.pyplot as plt
 
 def romolo(df: pd.DataFrame) -> tuple:
-    """ "
+    """
     Analisa a distribuição de sexo, estado civil e cor/raça dos participantes do ENEN 2022
 
     Parametros:

@@ -7,6 +7,7 @@ def get_image_to_flask(plt) -> str:
     Transforma a figura do matplotlib em uma sequência de bytes para ser usada no Flask e retorna a tag imagem já com esses bytes
 
     Parametros:
+        plt (plt): Módulo do matplotlib.pyplot
 
     Returns:
         image (str): Tag imagem com os bytes da figura
