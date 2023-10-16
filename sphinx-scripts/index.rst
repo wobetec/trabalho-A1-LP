@@ -14,9 +14,3 @@ Documentação do Trabalho de A1
    visualizations
 
 
-Índice e tabelas
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

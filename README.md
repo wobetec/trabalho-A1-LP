@@ -54,12 +54,12 @@ Para executar os doctests basta rodar o arquivo `.py` dentro de `/doctest`:
 # Documentação
 Para criar a documentação geramos os arquivos `.rst` com o comando
 
-    sphinx-apidoc -o docs [module]
+    sphinx-apidoc -o sphinx-scripts [module]
 
-Depois utilizamos o seguinte comando dentro do diretório `\docs` para atualizar a documentação:
+Para criar a documentação pode-se executar o seguinte comando dentro do diretório `\sphinx-scripts`:
 
     make html
 
-A documentação pode ser visualizada abrindo arquivo [index.html](docs/_build/html/index.html) ou através do [github pages](https://wobetec.github.io/trabalho-A1-LP/).
+A documentação pode ser gerada executando o comando acima ou acessando [aqui](https://trabalho-a1-lp.readthedocs.io/pt/latest/)
 
 
